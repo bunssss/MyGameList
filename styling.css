@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav a {
+    background-color: #333;
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    padding: 20px;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    background-color: #444;
+  }
+  
+  main {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  section {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 10px #ccc;
+    display: none;
+    padding: 20px;
+    width: 50%;
+  }
+  
+  section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  section input[type="text"],
+  section input[type="password"] {
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 60%;
+  }
+  
+  section button[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  section button[type="submit"]:hover {
+    background-color: #444;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
