@@ -1,26 +1,21 @@
-const apicalypse = require('apicalypse').default;
-const igdb = require('igdb-api-node').default;
-process.env.token;
+const data = 'fields name; limit 10;'
+const input = 'Call%20of%20Duty'
+const url = ('https://api.igdb.com/v4/games/?fields=name&search='+ input)
+const dotenv = require('dotenv');
+
+dotenv.config()
 
 
-const rawQueryString = 'fields a,b,c;limit 50;offset 0;';
+fetch(url, {
+  method: 'POST',
+  headers: {
+    'Client-ID': ,
+    'Authorization': ,
+    'Content-Type': 'application/json'
+  },
 
-const response = igdb()
-    .fields(['name']) // fetches only the name, movies, and age fields
-    .fields('name') // same as above
+  body: JSON.stringify(data)
 
-    .limit(50) // limit to 50 results
-    .offset(10) // offset results by 10
-
-    .sort('name') // default sort direction is 'asc' (ascending)
-    .sort('name', 'desc') // sorts by name, descending
-    .search('Call of Duty') // search for a specific name (search implementations can vary)
-
-    .where(`first_release_date > ${new Date().getTime() / 1000}`) // filter the results
-
-    .request('/games'); // execute the query and return a response object
-
-console.log(response.data);
-
-
-
+}).then(res =>  res.json())
+.then(data => console.log(data))
+.catch(error => console.log('ERROR'))
