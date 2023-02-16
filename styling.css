@@ -103,3 +103,70 @@ body {
     bottom: 0;
     width: 100%;
   }
+
+
+  .border-box {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  .list-box {
+    display: flex;
+    flex-direction: column;
+  
+    height: 100%;
+  
+    margin: 0;
+    padding: 0.5em;
+  }
+  
+  .games-search-box {
+    margin: 1em 0;
+  }
+  
+  .game-list {
+    width: 100%;
+  
+    margin: 0;
+    padding: 0;
+  
+    overflow-y: auto;
+  }
+  
+  .game-list li {
+    display: flex;
+  
+    border: 0.1em solid lightsalmon;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  
+    background-color: blanchedalmond;
+  
+    margin: 0.1em 0;
+    padding: 0.25em;
+  }
+
+  .game-details {
+    display: inline-block;
+  
+    margin-left: 1em;
+    padding: 0.5em 0;
+  }
+  
+  .game-details p {
+    margin: 0;
+  }
+  
+  .platforms-list {
+    display: flex;
+  
+    margin: 0;
+    padding: 0;
+  }
+  
+  .platforms-list li {
+    background-color: honeydew;
+  }
+  

@@ -21,3 +21,5 @@ for (let i = 0; i < tabs.length; i++) {
 tabs[0].classList.add("active");
 sections[0].style.display = "block";
 
+
+
