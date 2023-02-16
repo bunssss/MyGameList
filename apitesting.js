@@ -2,15 +2,16 @@ const data = 'fields name; limit 10;'
 const input = 'Call%20of%20Duty'
 const url = ('https://api.igdb.com/v4/games/?fields=name&search='+ input)
 const dotenv = require('dotenv');
+require("dotenv").config();
 
-dotenv.config()
-
+const ClientID = process.env.ClientID;
+const token = process.env.TOKEN;
 
 fetch(url, {
   method: 'POST',
   headers: {
-    'Client-ID': ,
-    'Authorization': ,
+    'Client-ID': ClientID,
+    'Authorization': token,
     'Content-Type': 'application/json'
   },
 
