@@ -104,6 +104,41 @@ body {
     width: 100%;
   }
 
+  .search-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem
+  }
+
+  input {
+    font-size: 1rem;
+  }
+  
+  .games {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: .25rem;
+    margin-top: 1rem;
+  }
+
+  .game {
+    border: 1px solid black;
+    background-color: white;
+    padding: .5rem;
+  }
+
+  .game > header {
+    margin-bottom: .25rem;
+  }
+  
+  .game > Genre {
+    font-size: .8rem;
+    color: #777
+  }
+
+  .hide {
+    display: none;
+  }
 
   
   

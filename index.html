@@ -34,15 +34,20 @@
       <section id="Games">
         <h2>Games</h2>
         <p>Unlimited Games but no Games</p>
-
-        <div class="list-box border-box">
-
-
-          <!-- Search Bar -->
-          <label><strong>IGDB Games</strong></label>
-          <input type="text" class="games-search-box" placeholder="Search Games" />
-      
+       
+        <div class = "search-wrapper">
+          <label for=search><strong>IGDB Games</strong></label>
+          <input type="search" id="search" placeholder="Search Games" />
         </div>
+
+        <div class ="games" data-games-cards-container></div>
+
+        <template games-template>
+          <div class = "game">
+            <div class = "header" data-header></div>
+            <div class = "Genre" data-genre></div>
+          </div>
+        </template>
 
       </section>
 
