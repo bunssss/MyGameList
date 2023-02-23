@@ -4,7 +4,7 @@ const gameCardTemplate = document.querySelector("[games-template]")
 const gameCardContainer = document.querySelector("[data-games-cards-container]")
 
 const ClientID = process.env.CLIENTID
-const tokekn = process.env.TOKEN
+const token = process.env.TOKEN
 
 fetch(url, {
   headers: {
