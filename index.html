@@ -56,6 +56,28 @@
       <section id="My List">
         <h2>My List</h2>
         <p>List will be here</p>
+
+        <form action="action_page.php" method="POST">
+
+          <label for="rating">Rating:</label>
+          <input type = "number" id="rating" name="rating" min="0" max="10" placeholder="Enter Rating Here" required>
+
+          <br>
+
+          <label for="Comment">Comments:</label>
+          <input type = "text" id="Comments" name="Comments" placeholder="Enter Comments Here" required>
+
+          <br>
+
+          <div>
+            <input type = "reset">
+          </div>
+
+          <div>
+              <input type="submit">
+          </div>
+
+        </form>
       </section>
 
       <section id="Account">
