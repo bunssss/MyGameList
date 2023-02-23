@@ -1,15 +1,10 @@
 const input = 'Call%20of%20Duty'
 const url = ('https://api.igdb.com/v4/games/?fields=name,genres&search='+ input)
-import * as dotenv from 'dotenv' 
-dotenv.config()
 const gameCardTemplate = document.querySelector("[games-template]")
 const gameCardContainer = document.querySelector("[data-games-cards-container]")
 
-dotenv.config();
-
-const ClientID = process.env.ClientID;
-const token = process.env.TOKEN;
-
+const ClientID = process.env.CLIENTID
+const tokekn = process.env.TOKEN
 
 fetch(url, {
   headers: {
