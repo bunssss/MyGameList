@@ -1,7 +1,0 @@
-name: Secret Variables
-run-name: passing in secret variables
-on: [push]
-
-env:
-    CLIENTID: ${{secrets.CLIENTID}}
-    TOKEN: ${{ secrets.TOKEN }}
