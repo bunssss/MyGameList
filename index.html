@@ -48,19 +48,19 @@
           <button type="add"><a href="#add">Add Game</a></button>
         </div>
 
-        <div class ="games" data-games-cards-container></div>
+        <!-- <div class ="games" data-games-cards-container></div>
 
         <template games-template>
           <div class = "game">
             <div class = "header" data-header></div>
             <div class = "Genre" data-genre></div>
           </div>
-        </template>
+        </template> -->
 
       </section>
 
       <section id="#add">
-        <form action="results.html" method="GET">
+        <form>
 
           <label for="Game Name">Game Name</label>
           <select name="Game Name" id="gamename" required>
@@ -73,10 +73,10 @@
           </select>
 
           <label for="Date Started">Date Started</label>
-          <input type="date" name="Date Started" id="Date" required>
+          <input type="date" name="Date Started" id="DateStart" required>
 
           <label for="Date Completed">Date Completed</label>
-          <input type="date" name="Date Completed" id="Date" required>
+          <input type="date" name="Date Completed" id="DateComplete" required>
   
           <label for="Rating">Rating:</label>
           <input type = "number" id="Rating" name="Rating" min="0" max="10" placeholder="Enter Rating Here" required>
@@ -100,6 +100,20 @@
       <section id="My List">
         <h2>My List</h2>
         <p>List will be here</p>
+
+        <div class ="games" data-games-cards-container></div>
+
+        <template games-template>
+          <div class = "game">
+            <div class = "Game Name:" game-name></div>
+            <div class = "Date Started:" date-started></div>
+            <div class = "Date Completed:" date-completed></div>
+            <div class = "Rating:" rating></div>
+            <div class = "Comments:" comments></div>
+          </div>
+        </template>
+
+
       </section>
 
       <section id="Account">
