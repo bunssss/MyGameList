@@ -36,3 +36,4 @@ sections[0].style.display = "block";
 //   rating.textContent = document.querySelector('#Rating')
 //   comments.textContent = document.querySelector('#Comments')
 //   gameCardContainer.append(card)
+

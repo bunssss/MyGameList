@@ -1,12 +1,31 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
+  <link rel="stylesheet" href="styling.css">
+  <!-- <script src="firebase.js"></script> -->
     <meta charset="UTF-8">
     <title>My Game List</title>
     <base href = '/'>
-    <link rel="stylesheet" href="styling.css">
+
+    <style>
+
+    
+    </style>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+  var firebaseConfig = {
+ 
+};
+
+  const app = initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
+
 
   </head>
   <body>
@@ -57,10 +76,10 @@
       </section>
 
       <section id="#add">
-        <form action="/" method:="post">
+        <form class="review-form">
 
           <label for="Game Name">Game Name</label>
-          <select name="GameName" id="gamename" required>
+          <select name="GameName" class="gamename" id="gamename" required>
             <option value="" disabled selected hidden>Select Game Name</option>
             <option value="Marvel's Spider-Man">Marvel's Spider-Man</option>
             <option value = "The Last of Us">The Last of Us</option>
@@ -70,25 +89,25 @@
           </select>
 
           <label for="Date Started">Date Started</label>
-          <input type="date" name="DateStarted" id="DateStart" required>
+          <input type="date" class="DateSt" name="DateStarted" id="DateStart" required>
 
           <label for="Date Completed">Date Completed</label>
-          <input type="date" name="DateCompleted" id="DateComplete" required>
+          <input type="date" class="DateComp" name="DateCompleted" id="DateComplete" required>
   
           <label for="Rating">Rating:</label>
-          <input type = "number" id="Rating" name="Rating" min="0" max="10" placeholder="Enter Rating Here" required>
+          <input type = "number" class="Rating" id="Rating" name="Rating" min="0" max="10" placeholder="Enter Rating Here" required>
   
           <br>
   
           <label for="Comment">Comments:</label>
-          <input type = "text" id="Comments" name="Comments" placeholder="Enter Comments Here">
+          <input type = "text" class="Comments" id="Comments" name="Comments" placeholder="Enter Comments Here">
   
           <div>
             <input type = "reset">
           </div>
   
           <div>
-              <input type="submit">
+              <input type="submit" class="submitbutton">
           </div>
   
         </form>
@@ -125,8 +144,33 @@
 
     </main>
 
-<script src="script.js"></script>
-<script type = "module" src="apitesting.js"></script>
+    <script src="script.js"></script>
+    <!-- <script src="firebase.js"></script> -->
+
+    <script>
+    
+    const reviewForm = document.querySelector('.review-form');
+    const GameName = document.querySelector('.gamename');
+    const DateStarted = document.querySelector('.DateSt');
+    const DateCompleted = document.querySelector('.DateComp');
+    const Rating = document.querySelector('.Rating');
+    const Comments = document.querySelector('.Comment');
+    const submit = document.querySelector('.submitbutton')
+
+    submit.addEventListener('click', (e) =>{
+      e.preventDefault();
+      db.collection('reviews').doc().set({
+        gameName: GameName.value,
+        DateStarted: DateStarted.value,
+        DateCompleted: DateCompleted.value,
+        Rating: Rating.value,
+        Comment: Comments.value
+    }).then(() => {
+    reviewForm.reset;
+  })
+})
+      </script>
+
 
 </body>
 </html>
