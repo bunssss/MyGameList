@@ -1,4 +1,3 @@
-// Get the tabs and sections
 const tabs = document.querySelector("#tabs").children;
 const sections = document.querySelectorAll("section");
 
