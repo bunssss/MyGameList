@@ -1,9 +1,6 @@
+// Get the tabs and sections
 const tabs = document.querySelector("#tabs").children;
 const sections = document.querySelectorAll("section");
-
-// const gameCardTemplate = document.querySelector("[games-template]")
-// const gameCardContainer = document.querySelector("[data-games-cards-container]")
-
 
 // Add click event listeners to the tabs
 for (let i = 0; i < tabs.length; i++) {
