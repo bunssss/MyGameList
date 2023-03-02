@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="styling.css">
+  <link rel="stylesheet" type="text/css" href="styling.css">
     <meta charset="UTF-8">
     <title>My Game List</title>
     <base href = '/'>
@@ -24,37 +24,37 @@
   
   };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase();
+//   // Initialize Firebase
+//   const app = initializeApp(firebaseConfig);
+//   const db = getDatabase();
 
-  var GameName = document.querySelector('#gamename');
-  var DateStarted = document.querySelector('#DateStart');
-  var DateCompleted = document.querySelector('#DateComplete');
-  var Rating = document.querySelector('#Rating');
-  var Comments = document.querySelector('#Comments');
+//   var GameName = document.querySelector('#gamename');
+//   var DateStarted = document.querySelector('#DateStart');
+//   var DateCompleted = document.querySelector('#DateComplete');
+//   var Rating = document.querySelector('#Rating');
+//   var Comments = document.querySelector('#Comments');
 
-  var submit = document.querySelector('#submitbutton')
+//   var submit = document.querySelector('#submitbutton')
 
-  function insertData(){
-      set(ref(db, "reviews/" + GameName.value), {
-        DateStart: DateStarted.value,
-        DateCompleted: DateCompleted.value,
-        Rating: Rating.value,
-        Comments: Comments.value
+//   function insertData(){
+//       set(ref(db, "reviews/" + GameName.value), {
+//         DateStart: DateStarted.value,
+//         DateCompleted: DateCompleted.value,
+//         Rating: Rating.value,
+//         Comments: Comments.value
 
-      })
-      .then(()=> {
-        alert("Success!")
-      })
-      .catch((error) => {
-        alert(error)
-      });
-  }
+//       })
+//       .then(()=> {
+//         alert("Success!")
+//       })
+//       .catch((error) => {
+//         alert(error)
+//       });
+//   }
 
-  submit.addEventListener('click', insertData);
+//   submit.addEventListener('click', insertData);
 
-</script>
+// </script>
 
   </head>
   <body>
@@ -70,8 +70,6 @@
       </nav>
 
     </header>
-
-
 
     <main>
       <section id="home">
@@ -130,7 +128,7 @@
         <template games-template>
           <div class = "game">
             <div class = "game" data-gname></div>
-            <div class = "summary" data-genre></div>
+            <div class = "summary" data-summary></div>
           </div>
         </template>
 
@@ -170,5 +168,6 @@
 </body>
 
 <script src="/script.js"></script>
+<script src="apitesting.js"></script>
 
 </html>
