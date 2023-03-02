@@ -35,13 +35,31 @@
   const app = initializeApp(firebaseConfig);
   const db = getDatabase();
 
-  var reviewForm = document.querySelector('.review-form');
-  var GameName = document.querySelector('.gamename');
-  var DateStarted = document.querySelector('.DateSt');
-  var DateCompleted = document.querySelector('.DateComp');
-  var Rating = document.querySelector('.Rating');
-  var Comments = document.querySelector('.Comment');
-  var submit = document.querySelector('.submitbutton')
+  var GameName = document.querySelector('#gamename');
+  var DateStarted = document.querySelector('#DateStart');
+  var DateCompleted = document.querySelector('#DateComplete');
+  var Rating = document.querySelector('#Rating');
+  var Comments = document.querySelector('#Comments');
+
+  var submit = document.querySelector('#submitbutton')
+
+  function insertData(){
+      set(ref(db, "reviews/" + GameName.value), {
+        DateStart: DateStarted.value,
+        DateCompleted: DateCompleted.value,
+        Rating: Rating.value,
+        Comments: Comments.value
+
+      })
+      .then(()=> {
+        alert("Success!")
+      })
+      .catch((error) => {
+        alert(error)
+      });
+  }
+
+  submit.addEventListener('click', insertData);
 
 </script>
 
@@ -51,9 +69,8 @@
     <header>
       <nav>
         <ul id="tabs">
-          <li><a href="#home">Home</a></li>
+          <li><a href="#home">Add Game</a></li>
           <li><a href="#Games">Games</a></li>
-          <l1><a href="#add">Add Game</a></l1>
           <li><a href="#MyList">My List</a></li>
           <li><a href="#Account">Account</a></li>
         </ul>
@@ -65,35 +82,6 @@
 
     <main>
       <section id="home">
-        <h2>Home</h2>
-        <p>Welcome to my website!</p>
-      </section>
-
-      <section id="Games">
-        <h2>Games</h2>
-        <p>Unlimited Games but no Games</p>
-       
-        <div class = "search-wrapper">
-          <label for=search><strong>IGDB Games</strong></label>
-          <input type="search" id="search" placeholder="Search Games" />
-        </div>
-
-        <div>
-          <button type="add"><a href="#add">Add Game</a></button>
-        </div>
-
-        <div class ="games" data-games-cards-container></div>
-
-        <template games-template>
-          <div class = "game">
-            <div class = "game" data-gname></div>
-            <div class = "summary" data-genre></div>
-          </div>
-        </template>
-
-      </section>
-
-      <section id="#add">
         <form class="review-form">
 
           <label for="Game Name">Game Name</label>
@@ -125,10 +113,34 @@
           </div>
   
           <div>
-              <input type="submit" class="submitbutton">
+              <button type="submit" id="submitbutton">Submit</button>
           </div>
   
         </form>
+      </section>
+
+      <section id="Games">
+        <h2>Games</h2>
+        <p>Unlimited Games but no Games</p>
+       
+        <div class = "search-wrapper">
+          <label for=search><strong>IGDB Games</strong></label>
+          <input type="search" id="search" placeholder="Search Games" />
+        </div>
+
+        <div>
+          <button type="add"><a href="#add">Add Game</a></button>
+        </div>
+
+        <div class ="games" data-games-cards-container></div>
+
+        <template games-template>
+          <div class = "game">
+            <div class = "game" data-gname></div>
+            <div class = "summary" data-genre></div>
+          </div>
+        </template>
+
       </section>
 
       <section id="My List">
@@ -163,34 +175,7 @@
     </main>
 
     <script src="script.js"></script>
-    <!-- <script type="module" src="apitesting.js"></script> -->
-    <!-- <script src="firebase.js"></script> -->
 
-    <!-- <script>
-    
-    const reviewForm = document.querySelector('.review-form');
-    const GameName = document.querySelector('.gamename');
-    const DateStarted = document.querySelector('.DateSt');
-    const DateCompleted = document.querySelector('.DateComp');
-    const Rating = document.querySelector('.Rating');
-    const Comments = document.querySelector('.Comment');
-    const submit = document.querySelector('.submitbutton')
-
-    submit.addEventListener('click', (e) =>{
-      e.preventDefault();
-      db.collection('reviews').doc().set({
-        gameName: GameName.value,
-        DateStarted: DateStarted.value,
-        DateCompleted: DateCompleted.value,
-        Rating: Rating.value,
-        Comment: Comments.value
-    }).then(() => {
-    reviewForm.reset;
-  })
-})
-      </script> -->
-
-  
 
 </body>
 </html>
