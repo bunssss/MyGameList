@@ -42,8 +42,8 @@ fetch(url, {
 // fetch(url, {
 //   method: 'POST',
 //   headers: {
-//     'Client-ID': 'bgiba2kpjhy98ea8s5xu3d04sx72kn',
-//     'Authorization': 'Bearer 371rntzw90vdgqrad4od50sgrs6st3',
+//     'Client-ID': '',
+//     'Authorization': '',
 //     'Content-Type': 'application/json'
 //   },
 //   body: JSON.stringify(data)
