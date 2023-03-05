@@ -21,38 +21,75 @@
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
-  
+    apiKey: "AIzaSyDzWv4OLtJVh-FKwWr3TN4qXyFxN2lkwdc",
+    authDomain: "mygamelist-359f8.firebaseapp.com",
+    databaseURL: "https://mygamelist-359f8-default-rtdb.firebaseio.com",
+    projectId: "mygamelist-359f8",
+    storageBucket: "mygamelist-359f8.appspot.com",
+    messagingSenderId: "76881393877",
+    appId: "1:76881393877:web:382c07d15306af3ab08a5c"
   };
 
-//   // Initialize Firebase
-//   const app = initializeApp(firebaseConfig);
-//   const db = getDatabase();
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase();
 
-//   var GameName = document.querySelector('#gamename');
-//   var DateStarted = document.querySelector('#DateStart');
-//   var DateCompleted = document.querySelector('#DateComplete');
-//   var Rating = document.querySelector('#Rating');
-//   var Comments = document.querySelector('#Comments');
+  var GameName = document.querySelector('#gamename');
+  var DateStarted = document.querySelector('#DateStart');
+  var DateCompleted = document.querySelector('#DateComplete');
+  var Rating = document.querySelector('#Rating');
+  var Comments = document.querySelector('#Comments');
+  var FindGame = document.querySelector('#FindGame');
+  var findName = document.querySelector('#FGameName');
+  var findRate = document.querySelector('#FGameRating')
+  var findStart = document.querySelector('#FStart');
+  var findComplete = document.querySelector('#FComplete');
+  var findComments = document.querySelector('#FComments');
+  
 
-//   var submit = document.querySelector('#submitbutton')
+  var submit = document.querySelector('#submitbutton');
+  var find = document.querySelector('#findbutton');
 
-//   function insertData(){
-//       set(ref(db, "reviews/" + GameName.value), {
-//         DateStart: DateStarted.value,
-//         DateCompleted: DateCompleted.value,
-//         Rating: Rating.value,
-//         Comments: Comments.value
+  function insertData(){
+      set(ref(db, "reviews/" + GameName.value), {
+        Name: GameName.value,
+        DateStart: DateStarted.value,
+        DateCompleted: DateCompleted.value,
+        Rating: Rating.value,
+        Comments: Comments.value
 
-//       })
-//       .then(()=> {
-//         alert("Success!")
-//       })
-//       .catch((error) => {
-//         alert(error)
-//       });
-//   }
+      })
+      .then(()=> {
+        console.log("Success!")
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }
 
-//   submit.addEventListener('click', insertData);
+  function FindData() {
+    const dbref = ref(db);
+
+    get(child(dbref, "reviews/" + FindGame.value))
+    .then((snapshot)=>{
+        if(snapshot.exists()) {
+          findName.innerHTML = "Game Name: " + snapshot.val().Name;
+          findStart.innerHTML = "Date Started: " + snapshot.val().DateStart;
+          findComplete.innerHTML = "Date Completed: " + snapshot.val().DateCompleted;
+          findRate.innerHTML = "Rating: " + snapshot.val().Rating;
+          findComments.innerHTML = "Comments: " + snapshot.val().Comments;
+        } else {
+          console.log("no data found");
+        }
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+
+  }
+
+  submit.addEventListener('click', insertData);
+  find.addEventListener('click', FindData);
 
 // </script>
 
@@ -112,25 +149,52 @@
 
       <section id="Games">
         <h2>Games</h2>
-        <p>Unlimited Games but no Games</p>
        
         <div class = "search-wrapper">
-          <label for=search><strong>IGDB Games</strong></label>
           <input type="search" id="search" placeholder="Search Games" />
         </div>
 
-        <div>
-          <button type="add"><a href="#add">Add Game</a></button>
+        <div class="games">
+            <div class="game">
+              <div class="header">Marvel's Spider-Man</div>
+              <div class="summary">Summary</div>
+            </div>
+
+            <div class="game">
+              <div class="header">The Last of Us</div>
+              <div class="summary">Summary</div>
+            </div>
+
+            <div class="game">
+              <div class="header">The Last of Us Part II</div>
+              <div class="summary">Summary</div>
+            </div>
+
+            <div class="game">
+              <div class="header">God of War (2018)</div>
+              <div class="summary">Summary</div>
+            </div>
+
+            <div class="game">
+              <div class="header">God of War Ragnarök</div>
+              <div class="summary">Summary</div>
+            </div>
         </div>
 
-        <div class ="games" data-games-cards-container></div>
+        
+
+        <!-- <div>
+          <button type="add"><a href="#add">Add Game</a></button>
+        </div> -->
+
+        <!-- <div class ="games" data-games-cards-container></div>
 
         <template games-template>
           <div class = "game">
             <div class = "game" data-gname></div>
             <div class = "summary" data-summary></div>
           </div>
-        </template>
+        </template> -->
 
       </section>
 
@@ -138,18 +202,16 @@
         <h2>My List</h2>
         <p>List will be here</p>
 
-        <div class ="games" data-games-cards-container></div>
+        <label for="FindGame">Game Name:</label>
+        <input type = "text" class="FindGame" id="FindGame" name="FindGame" placeholder="Enter Game Name Here">
+        <button type="submit" id="findbutton">Submit</button>
+        <br>
 
-        <template games-template>
-          <div class = "game">
-            <div class = "Game Name:" game-name></div>
-            <div class = "Date Started:" date-started></div>
-            <div class = "Date Completed:" date-completed></div>
-            <div class = "Rating:" rating></div>
-            <div class = "Comments:" comments></div>
-          </div>
-        </template>
-
+        <p id="FGameName" type="text"></p>
+        <p id="FStart" type="date"></p>
+        <p id="FComplete" type="date"></p>
+        <p id="FGameRating" type="number"></p>
+        <p id="FComments" type="text"></p>
 
       </section>
 
@@ -168,6 +230,6 @@
 </body>
 
 <script src="/script.js"></script>
-<script src="apitesting.js"></script>
+<!-- <script type="module" src="apitesting.js"></script> -->
 
 </html>

@@ -159,7 +159,7 @@ body {
     margin-bottom: .25rem;
   }
   
-  .game > Genre {
+  .game > summary {
     font-size: .8rem;
     color: #777
   }

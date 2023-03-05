@@ -1,21 +1,21 @@
-// import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
-// dotenv.config()
+import * as dotenv from 'dotenv' 
+dotenv.config()
 
 const data = 'fields name; limit 10;'
-const input = 'Call%20of%20Duty'
-const url = ('https://api.igdb.com/v4/games/?fields=name,genres&search='+ input)
+const url = ('	https://tox9brvade.execute-api.us-west-2.amazonaws.com/production/v4/games/')
 const gameCardTemplate = document.querySelector("[games-template]")
 const gameCardContainer = document.querySelector("[data-games-cards-container]")
 
-// const ClientID = process.env.CLIENTID
-// const token = process.env.TOKEN
+const ClientID = process.env.CLIENTID
+const token = process.env.TOKEN
 
 fetch(url, {
   method: 'POST',
   headers: {
-    'Client-ID': '',
-    'Authorization': '',
-    'Content-Type': 'application/json'
+    'Client-ID': ClientID,
+    'Authorization': token,
+    'Content-Type': 'application/json',
+    'x-api-key': 'LjoKUjDt0D7gLZKT133p45MUKRK9j6TtaMUcnIWn'
   },
 
 }).then(res =>  res.json())
@@ -42,8 +42,8 @@ fetch(url, {
 // fetch(url, {
 //   method: 'POST',
 //   headers: {
-//     'Client-ID': 'bgiba2kpjhy98ea8s5xu3d04sx72kn',
-//     'Authorization': 'Bearer 371rntzw90vdgqrad4od50sgrs6st3',
+//     'Client-ID': ClientID,
+//     'Authorization': token,
 //     'Content-Type': 'application/json'
 //   },
 //   body: JSON.stringify(data)
